@@ -5,7 +5,7 @@ Read this file first, every time. It tells you what we are building, how it must
 ## What we are building
 
 **BorlaGo** is an on-demand waste pickup app for Ghana, like a ride-hailing app for rubbish ("borla").
-A customer describes their waste, BorlaGo finds the nearest available collector, the collector comes, the waste is collected and paid for.
+The customer sets their home location and their usual waste **once** (one-time setup). After that, they just tap one big **Find Collector** button. BorlaGo finds the nearest available collector within the search radius, the collector comes, the waste is collected and paid for.
 
 Tagline: **Tap. Picked up. Gone.**
 
@@ -58,18 +58,26 @@ Do these in order. Finish and test one before starting the next.
 1. **Setup:** `constants/theme.ts` (colours, font sizes, spacing) and load the Poppins font.
 2. **01 Welcome** (`design/screens/01-welcome.png`)
 3. **02 Sign in** (phone number + 4-digit code — no real SMS yet)
-4. **03 Home** (map can be a placeholder image at first)
-5. **04 Describe your waste**
-6. **05 Finding your collector** and **06 No collector available**
-7. **07 Collector accepted**
-8. **08 Payment** and **09 Borla gone**
-9. **10 Collector job request** and **11 Collector active job**
-10. Later, together: Supabase (login, database), real map and location, the collector matching, live updates.
+4. **03 Setup: your location** and **04 Setup: your usual waste** — one-time setup, shown only the first time. Save the answers on the phone for now (fake data is fine).
+5. **05 Home** — the big round **Find Collector** button, the saved address with "Change", the usual-waste card with "Different today?" (map not needed on this screen)
+6. **06 Different today?** (optional, for one pickup only — the saved usual waste does not change)
+7. **07 Finding your collector** and **08 No collector available**
+8. **09 Collector accepted**
+9. **10 Payment** and **11 Borla gone**
+10. **12 Collector job request** and **13 Collector active job**
+11. Later, together: Supabase (login, database), real map and location, the collector matching, live updates.
+
+## Important: the app flow
+
+- First time only: Welcome → Sign in → Setup location → Setup usual waste → Home.
+- Every time after that: the app opens **straight on Home**. One tap on **Find Collector** sends a request using the **saved** location and **saved** usual waste. No describing, no location picking, no price to confirm before the collector comes.
+- The saved location and usual waste can be changed later (Home "Change" link, and Profile).
 
 ## Not decided yet — ask me before building these
 
 - How long a collector has to accept a job (suggestion: 30 seconds)
-- Is the price fixed by the app, or agreed with the collector?
+- The search radius for collectors (using **3 km** for now — still being discussed with collectors)
+- The price: for now the app works it out from the saved usual waste, and the customer pays after pickup
 - Mobile Money, cash, or both? Which Mobile Money provider?
 - How we know a collector can carry a certain waste size
 - Some features are still being discussed with waste collectors

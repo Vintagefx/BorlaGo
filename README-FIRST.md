@@ -1,38 +1,26 @@
-# BorlaGo AI kit — read me first
+# BorlaGo AI kit (version 2 — one-tap flow) — read me first
 
-This folder gives the AI everything it needs to build BorlaGo the way we designed it.
+This version has the **new flow**: set your location and usual waste **once**, then just tap the big **Find Collector** button.
 
-## What's inside
+## How to update your project with this kit
 
-- `CLAUDE.md` — the main instructions for the AI (the AI reads this automatically)
-- `AGENTS.md` — the same instructions, for other AI coding tools
-- `design/` — design rules, screen pictures, logo and images
-- `docs/` — how the app works
+Your project folder is `Documents\BorlaGo`. Copy these from this kit **into that folder** and choose **Replace** when Windows asks:
 
-## Where to put it
+- `AGENTS.md`
+- `CLAUDE.md`
+- the `design` folder
+- the `docs` folder
 
-1. Create the Expo project first (in the VS Code terminal):
-   `npx create-expo-app@latest borlago`
-2. Open the new `borlago` folder in VS Code.
-3. Copy **everything inside this kit** (CLAUDE.md, AGENTS.md, design, docs) into the `borlago` folder, next to `package.json`.
+Do **not** delete anything else (keep `app.json`, `package.json`, `node_modules`, etc.).
 
-It should look like this:
+**Important:** delete the old `design\screens` folder first, then paste the new one, so old pictures with old names don't stay behind.
 
-```
-borlago/
-├── app/              ← made by Expo (the screens go here)
-├── assets/           ← made by Expo
-├── package.json      ← made by Expo
-├── CLAUDE.md         ← from this kit
-├── AGENTS.md         ← from this kit
-├── design/           ← from this kit
-└── docs/             ← from this kit
-```
+## Then save it in Git
+
+Source Control → message `Updated design: one-tap flow` → Commit → Sync Changes.
 
 ## How to use it with the AI
 
 Start every session by saying:
 
-> Read CLAUDE.md, then let's do step 1 of the build order.
-
-Then go one step at a time.
+> Read AGENTS.md, then let's continue with the next step of the build order.
