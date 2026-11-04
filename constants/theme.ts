@@ -33,6 +33,8 @@ export const fontSizes = {
   titleLarge: 30,
   number: 26,
   numberLarge: 44,
+  welcomeLogo: 44,
+  welcomeHeadline: 22,
 } as const;
 
 export const spacing = {
